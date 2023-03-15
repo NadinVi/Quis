@@ -1,7 +1,9 @@
-
 .App {
-  width: 1200px
+  margin: 0 auto;
+  padding: 0 15px;
+  background-color: rgb(201, 237, 237);
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -27,13 +29,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+
 .nav_container {
-padding: 20px 0;
+  padding: 20px 0;
+  
 }
 
 .nav_row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .nav_menu {

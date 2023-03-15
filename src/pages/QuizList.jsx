@@ -1,7 +1,23 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Grid } from "@mui/material";
+import { 
+    styled,
+    Box, 
+} from "@mui/material";
 import QuizItem from "../components/QuizItem";
+
+const MainWrapper = styled(Box)(() => ({
+    display: 'flex',
+    //flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    //height: 'auto',
+    boxSizing: 'border-box',
+    backgroundColor: 'none',
+    padding: '10px',
+    margin: '10px',
+  }));
 
 export default function QuizList() {
     let [quizzes, setQuiz] = useState([]);
@@ -22,13 +38,12 @@ export default function QuizList() {
 
 
     return (
-
-        <Grid container spacing={2}>
-            {quizzes.map((quiz, index) => <QuizItem 
-                id={index}
-                quiz={quiz}
-                buttonStart={startQuiz}
-            />)}
-        </Grid>
+        <MainWrapper>
+                {quizzes.map((quiz, index) => <QuizItem
+                    id={index}
+                    quiz={quiz}
+                    buttonStart={startQuiz}
+                />)}
+        </MainWrapper>
     )
 }
