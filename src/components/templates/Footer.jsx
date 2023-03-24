@@ -1,9 +1,9 @@
 import React from "react";
-import github from "./../images/github.png";
-import telegram from "./../images/telegram.png";
-import viber from "./../images/viber.png";
+import github from "./../../images/github.png";
+import telegram from "./../../images/telegram.png";
+import viber from "./../../images/viber.png";
 
-export default function QuizFooter() {
+export default function Footer() {
     return (
         <footer className="footer">
             <div className="container">
@@ -14,7 +14,7 @@ export default function QuizFooter() {
                         <li className="social_item"><a href="#!"><img src={telegram} alt="telegram" /></a></li>
                     </ul>
                     <div className="copyright">
-                        <p>Front End Pro 2023</p>
+                        <p className="fooText">Front End Pro 2023</p>
                     </div>
                 </div>
             </div>
