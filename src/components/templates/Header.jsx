@@ -1,14 +1,19 @@
 import { Typography } from '@mui/material';
-import React from 'react';
+import { Component } from 'react';
 
-export default function Header() {
+export default class Header extends Component {
+    constructor() {
+        super();
+    }
 
-    return (
-        <Typography variant='h3'
-                    component='h3'
-                    color='rgb(54, 46, 36)'
-        >
-            Quizzes of HTML, CSS, JS
-        </Typography>
-    )
+    render() {
+        return (
+            <Typography variant='h3'
+                component='h3'
+                color='rgb(54, 46, 36)'
+            >
+                Quizzes of HTML, CSS, JS
+            </Typography>
+        )
+    }
 }

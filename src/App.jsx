@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import { Grid, Box, styled } from '@mui/material';
 import Header from './components/templates/Header';
 import './App.css';
@@ -35,33 +35,38 @@ const FooterWrapper = styled(Box)(() => ({
   margin: 'auto',
 }));
 
-function App() {
-  return (
-    <div className="App">
-      <Grid container>
-        <Grid item lg={12} md={12} xs={12}>
-          <HeaderWrapper>
-            <Header />
-          </HeaderWrapper>
+export default class App extends Component {
+  constructor() {
+    super();
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Grid container>
+          <Grid item lg={12} md={12} xs={12}>
+            <HeaderWrapper>
+              <Header />
+            </HeaderWrapper>
+          </Grid>
+          <Grid item lg={2} md={0} xs={0}
+            display={{ xs: "none", md: "none", lg: "block" }}>
+            <NavBarWrapper>
+              <NavBar />
+            </NavBarWrapper >
+          </Grid>
+          <Grid item lg={10} md={12} xs={12}>
+            <Body>
+              <Main />
+            </Body>
+          </Grid>
+          <Grid item lg={12} md={12} xs={12}>
+            <FooterWrapper>
+              <Footer />
+            </FooterWrapper>
+          </Grid>
         </Grid>
-        <Grid item lg={2} md={0} xs={0}
-          display={{ xs: "none", md: "none", lg: "block" }}>
-          <NavBarWrapper>
-            <NavBar />
-          </NavBarWrapper >
-        </Grid>
-        <Grid item lg={10} md={12} xs={12}>
-          <Body>
-            <Main />
-          </Body>
-        </Grid>
-        <Grid item lg={12} md={12} xs={12}>
-          <FooterWrapper>
-            <Footer />
-          </FooterWrapper>
-        </Grid>
-      </Grid>
-    </div>
-  );
+      </div>
+    );
+  }
 }
-export default App;
