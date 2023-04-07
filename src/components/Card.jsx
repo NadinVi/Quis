@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import {
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
-    Button,
-    Typography
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import CreateModal from './Dialogs/CreateModal';
 
 export default function CardRender({ imageSrc, testTitle, description }) {
   const [open, setOpenModal] = useState(false);
-  const startQuiz = () => {
-    alert("Quiz started!")
-}
+  const pathToTest = testTitle.split(' ').join('_').toLowerCase();
 
   return (
     <>
@@ -32,11 +31,17 @@ export default function CardRender({ imageSrc, testTitle, description }) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size='small' onClick={startQuiz}>Start quiz</Button>
+          <Button size='small'>
+            <Link
+              style={{ textDecoration: 'none', color: 'inherit' }}
+              to={`/quizzes/${pathToTest}`}
+            >
+              Start quiz</Link>
+          </Button>
           <Button size='small' onClick={() => setOpenModal(true)}>Show More</Button>
         </CardActions>
       </Card>
-      <CreateModal 
+      <CreateModal
         open={open}
         handleOnClose={() => setOpenModal(false)}
         imageSrc={imageSrc}
