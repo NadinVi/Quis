@@ -51,8 +51,7 @@ export default function Quizz() {
 
   return (
     <div className="quizz_container">
-      <Timer
-      restart = {refresh} />
+      <Timer/>
       <div className="quizz_wrapper">
       {
         showScore
