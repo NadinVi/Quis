@@ -16,7 +16,7 @@ export default function Homepage() {
           <ListItem disablePadding>
             <Link
               style={{ textDecoration: 'none' }}
-              to='/quizzes'>
+              to='/quizz'>
               <ListItemButton>
                 <ListItemIcon>
                   <CottageIcon />

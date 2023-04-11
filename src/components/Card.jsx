@@ -34,7 +34,7 @@ export default function CardRender({ imageSrc, testTitle, description }) {
           <Button size='small'>
             <Link
               style={{ textDecoration: 'none', color: 'inherit' }}
-              to={`/quizzes/${pathToTest}`}
+              to={`/quizz/${pathToTest}`}
             >
               Start quiz</Link>
           </Button>
