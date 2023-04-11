@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { quizz as quizzApi } from '../api';
+import Timer from '../components/Timer';
 
 export default function Quizz() {
   const { name } = useParams();
@@ -12,7 +13,7 @@ export default function Quizz() {
   const [showScore, setShowScore] = useState(false);
 
   const handleAnswearClick = (isCorrect) => {
-    if (isCorrect) {
+    if (isCorrect === 'true') {
       setScore(score + 1);
     }
     const nextQuestion = currentQuestion + 1;
@@ -50,6 +51,9 @@ export default function Quizz() {
 
   return (
     <div className="quizz_container">
+      <Timer
+      restart = {refresh} />
+      <div className="quizz_wrapper">
       {
         showScore
           ? <div className="section_score">
@@ -76,6 +80,7 @@ export default function Quizz() {
             </div>
           </div>
       }
+      </div>
     </div>
   );
 }
