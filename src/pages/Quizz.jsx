@@ -51,16 +51,18 @@ export default function Quizz() {
 
   return (
     <div className="quizz_container">
-      <Timer/>
       <div className="quizz_wrapper">
       {
         showScore
           ? <div className="section_score">
-            <div>Correct answers {score} of {quizz.length}</div>
-            <button
+            <div className="score_text">
+              <p>Correct answers {score} of {quizz.length}</p>
+              <p>Test over</p>
+              </div>
+            {/* <button
             className="refresh_btn"
             onClick={refresh}
-            >Try again...</button>
+            >End of quiz</button> */}
           </div>
           : <div className="quizz">
             <div className="question">
@@ -80,6 +82,8 @@ export default function Quizz() {
           </div>
       }
       </div>
+      <Timer
+        refresh = {refresh} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getPadTime } from './helpers/getPadTime';
 
-export default function Timer() {
+export default function Timer({ refresh }) {
   const [timeLeft, setTimeLeft] = useState(3 * 60);
   const [isCounting, setIsCounting] = useState(false);
   const minutes = getPadTime(Math.floor(timeLeft / 60));
@@ -31,6 +31,7 @@ export default function Timer() {
   const handleReset = () => {
     setIsCounting(false);
     setTimeLeft(3 * 60);
+    refresh();
   };
 
   return (
@@ -43,8 +44,8 @@ export default function Timer() {
         </div>
         <div className="buttons">
           {isCounting ? (
-            <button onClick={handleStop}>Stop</button>
-          ) : (<button onClick={handleStart}>Start</button>)}
+            <button onClick={handleStop}>Stop</button>)
+            : (<button onClick={handleStart}>Start</button>)}
           <button onClick={handleReset}>Reset</button>
         </div>
       </div>
