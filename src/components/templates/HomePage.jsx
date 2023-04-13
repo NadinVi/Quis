@@ -1,24 +1,32 @@
-import React from "react";
+import React from 'react';
 import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import { Link } from 'react-router-dom';
 import CottageIcon from '@mui/icons-material/Cottage';
 
 export default function Homepage() {
   return (
-    <Box
-      sx={{
-        '& > :not(style)': {
-          m: 1,
-        },
-        justifyContent: 'flex-start',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-      }}
-    >
-      <div>
-      <CottageIcon />
-        </div> 
-        <p>Home</p>
+    <Box sx={{ width: '100%', maxWidth: 360 }}>
+      <nav aria-label='main mailbox folders'>
+        <List>
+          <ListItem disablePadding>
+            <Link
+              style={{ textDecoration: 'none' }}
+              to='/quizz'>
+              <ListItemButton>
+                <ListItemIcon>
+                  <CottageIcon />
+                </ListItemIcon>
+                <ListItemText primary='Home page' />
+              </ListItemButton>
+            </Link>
+          </ListItem>
+        </List>
+      </nav>
     </Box>
-  )
+  );
 }
