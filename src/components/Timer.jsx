@@ -39,7 +39,7 @@ export default function Timer({ refresh }) {
       <div className="timer_container">
         <div className="timer">
           <span>{minutes}</span>
-          <span>:</span>
+          <span> : </span>
           <span>{seconds}</span>
         </div>
         <div className="buttons">
