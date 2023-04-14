@@ -59,10 +59,10 @@ export default function Quizz() {
               <p>Correct answers {score} of {quizz.length}</p>
               <p>Test over</p>
               </div>
-            {/* <button
-            className="refresh_btn"
-            onClick={refresh}
-            >End of quiz</button> */}
+            {/* { <button
+            // className="refresh_btn"
+            // onClick={refresh}
+            >End of quiz</button> } */}
           </div>
           : <div className="quizz">
             <div className="question">
@@ -82,8 +82,7 @@ export default function Quizz() {
           </div>
       }
       </div>
-      <Timer
-        refresh = {refresh} />
+      <Timer refresh = {refresh} quizLength={quizz.length} />
     </div>
   );
 }
