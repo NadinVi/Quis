@@ -180,3 +180,40 @@ button:hover {
   display: flex;
   justify-content: center;
 }
+
+.search_form {
+  display: flex;
+  height: 40px;
+  border: 1px solid rgb(5, 78, 54);
+  border-radius: 10px;
+}
+
+.search_input {
+  background-color: rgba(115, 196, 196);
+  width: 150px;
+  border: none;
+  padding: 3px;
+  padding-left: 15px;
+  border-radius: 10px;
+  border-style: hidden;
+}
+
+.search_input:hover {
+  border-style: hidden;
+}
+
+.form {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.search_button {
+  background-color: rgba(115, 196, 196);
+  border: none;
+}
+
+.search_button:hover {
+  border: none;
+  background-color: rgba(115, 196, 196);
+
+}

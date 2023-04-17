@@ -11,7 +11,7 @@ const MainWrapper = styled(Box)(() => ({
 }));
 
 export default function Main() {
-  const { quizzez } = useSelector((state) => state.quizzezReducer);
+  const { filterQuizzez } = useSelector((state) => state.quizzezReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Main() {
 
   return (
     <MainWrapper>
-      {quizzez.map((test) => (
+      {filterQuizzez.map((test) => (
         <Card
           key={test.key}
           testTitle={test.title}
