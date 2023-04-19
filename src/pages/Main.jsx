@@ -1,7 +1,8 @@
 import { Box, styled } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { tests } from '../api';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Card from '../components/Card';
+import { quizzezThunks } from '../store/modules/quizzez/index';
 
 const MainWrapper = styled(Box)(() => ({
   display: 'flex',
@@ -10,14 +11,13 @@ const MainWrapper = styled(Box)(() => ({
 }));
 
 export default function Main() {
-  const [testsData, setTests] = useState([]);
+  const { filterQuizzez } = useSelector((state) => state.quizzezReducer);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await tests.fetch();
-        setTests(data);
-        console.log(data);
+        await dispatch(quizzezThunks.fetchQuizzez());
       } catch (err) {
         console.log(err);
       }
@@ -26,7 +26,7 @@ export default function Main() {
 
   return (
     <MainWrapper>
-      {testsData.map((test) => (
+      {filterQuizzez.map((test) => (
         <Card
           key={test.key}
           testTitle={test.title}

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { quizz as quizzApi } from '../api';
+import { useDispatch, useSelector } from 'react-redux';
 import Timer from '../components/Timer';
+import { quizzThunks } from '../store/modules/quizz';
 
 export default function Quizz() {
   const { name } = useParams();
+  const { quizz } = useSelector((state) => state.quizzReducer);
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [quizz, setQuizz] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
@@ -34,9 +36,7 @@ export default function Quizz() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await quizzApi.fetch(name);
-        console.log(data);
-        setQuizz(data);
+        await dispatch(quizzThunks.fetchQuizz(name));
       } catch (err) {
         console.log(err);
         setError(true);
@@ -44,7 +44,7 @@ export default function Quizz() {
         setLoading(false);
       }
     })();
-  }, []);
+  }, [name]);
 
   if (loading) return (<div>Loading...</div>);
   if (error) return (<div>Page in Progress...</div>);
