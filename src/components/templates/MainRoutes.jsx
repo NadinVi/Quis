@@ -4,8 +4,8 @@ import GridTemplate from './GridTemplate';
 import Main from '../../pages/Main';
 import Favorites from './Favorites';
 import HomePage from './HomePage';
-import NewTest from './NewTest';
 import Quizz from '../../pages/Quizz';
+import CreateQuizz from '../../pages/CreateQuizz';
 
 export default function MainRoutes() {
   return (
@@ -15,7 +15,7 @@ export default function MainRoutes() {
         <Route element={<Main />} path='/' />
         <Route path='favorites' element={<Favorites />} />
         <Route path='home_page' element={<HomePage />} />
-        <Route path='new_quizz' element={<NewTest />} />
+        <Route path='create' element={<CreateQuizz />} />
         <Route path='/:name' element={<Quizz />} />
       </Routes>
     </GridTemplate>

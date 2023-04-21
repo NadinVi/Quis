@@ -16,7 +16,7 @@ export default function NewTest() {
           <ListItem disablePadding>
             <Link
               style={{ textDecoration: 'none' }}
-              to='/new_quizz'>
+              to='/quizz/create'>
               <ListItemButton>
                 <ListItemIcon>
                   <AddToPhotosIcon />
