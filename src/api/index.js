@@ -8,4 +8,8 @@ const quizz = {
   fetch: (test) => axios.get(`${test}`).then((data) => data),
 };
 
-export { tests, quizz };
+const newTest = {
+  fetch: ((body) => axios.post('/quizes', body).then((data) => data)),
+};
+
+export { tests, quizz, newTest };
